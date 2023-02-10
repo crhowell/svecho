@@ -1,0 +1,19 @@
+{
+	auto_https off
+}
+
+
+:80 {
+  encode gzip
+
+  handle /api {
+    reverse_proxy backend:8000
+  }
+ 
+  handle {
+    root * /var/www/html
+    try_files {path} /index.html
+    file_server
+  }
+
+}

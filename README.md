@@ -6,17 +6,17 @@ Echo/Go backend + Svelte frontend + Caddy to serve static assets and proxy and P
 > This setup is really just meant to imitate local development environment with hot reloading while also allowing you to test production-like served assets / routes / proxying with Caddy. Though this setup would need to be tweaked to actually serve properly for production. Its mostly for my own use-case and interest of learning and automating my local dev environments but feel free to use or take what you want from it.
 
 ## Service Container Images
-- golang:1.19-alpine (`backend`)
-- caddy:2.5.2-alpine (`caddy`)
-- postgres:14-alpine (`db`)
-- node:19-alpine (`frontend`)
+- golang:1.21-alpine (`backend`)
+- caddy:2.7.6-alpine (`caddy`)
+- postgres:16-alpine (`db`)
+- node:20-alpine (`frontend`)
 
 ## Main Dependency Versions
-- Go 1.19
+- Go 1.21
 - Echo v4
 - Svelte 3.x
 - Vite 4.x
-- Postgres 14
+- Postgres 16
 
 ## Instructions to run
 Docker + Docker Compose is required. The containers take ~10s to ~20s to come up all the way. Source code folders `backend`/`frontend` are mounted into the containers so we can support hot reloads. If you save an erroring line the container can possibly exit so just `docker compose up -d` and itll restart the stopped ones once you fix your code.

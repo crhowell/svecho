@@ -1,9 +1,7 @@
 #!/bin/sh
 
-cd ..
-npm install && npm cache clean --force
-
-cd app
+npm cache clean --force
+npm install
 npm run build
 
 exec "$@"

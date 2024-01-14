@@ -6,7 +6,11 @@
 :80 {
   encode gzip
 
-  handle /api {
+  log errorlog {
+    output stderr
+  }
+
+  handle /api* {
     reverse_proxy backend:8000
   }
  
